@@ -1,26 +1,28 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">CarHub</string>
 
-<!--    Login  -->
+<!--    Inicio  -->
 
-    <string name="boton_cargar">Cargar Producto</string>
-    <string name="boton_ver">Ver Producto</string>
+<!--    Iniciar Sesion-->
 
+<!--    Registro-->
 
-<!--    Cargar Producto -->
-    <string name="titulo_cargar">Carga de Productos</string>
-    <string name="nombre_producto">Nombre</string>
-    <string name="precio_producto">Precio</string>
-    <string name="descrip_producto">Descripcion</string>
-    <string name="boton_cargar_producto">Cargar Producto</string>
+<!--    Menu Principal-->
 
-<!--    Ver Productos-->
-    <string name="titulo_ver_producto">Datos del Producto</string>
-    <string name="ver_nombre_producto">Nombre</string>
-    <string name="ver_precio_producto">Precio</string>
-    <string name="ver_descrip_prodcuto">Descripcion</string>
-    <string name="boton_atras">"Atras"</string>
-    <string name="boton_siguiente">Siguiente</string>
+<!--    Perfil-->
 
+<!--    Subir Anuncio-->
+
+<!--    Catalogo-->
+
+<!--    Publicacion-->
+
+<!--    Chat-->
+
+<!--    FAQ-->
+
+<!--    Bookmarks-->
+
+<!--    Acerca De-->
 
 </resources>
