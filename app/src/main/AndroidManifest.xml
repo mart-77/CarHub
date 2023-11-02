@@ -19,6 +19,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.InicioSesionActivity"></activity>
+        <activity android:name=".activities.RegistroActivity"></activity>
+        <activity android:name=".activities.MenuPrincipalActivity"></activity>
+        <activity android:name=".activities.PerfilActivity"></activity>
+        <activity android:name=".activities.SubirAnuncioAcitivity"></activity>
+        <activity android:name=".activities.CatalogoActivity"></activity>
+        <activity android:name=".activities.PublicacionActivity"></activity>
+        <activity android:name=".activities.ChatActivity"></activity>
+        <activity android:name=".activities.FAQActivity"></activity>
+        <activity android:name=".activities.BookmarksActivity"></activity>
+        <activity android:name=".activities.AcercaDeActivity"></activity>
+
+
+
+
+
+
+
+
+
 
     </application>
 
