@@ -1,13 +1,39 @@
 <resources>
     <string name="app_name">CarHub</string>
 
-<!--    Inicio  -->
+    <!-- Inicio -->
 
-<!--    Iniciar Sesion-->
+    <string name="inicio_boton_crearcuenta"> Registrarse </string>
+    <string name="inicio_boton_iniciarsesion"> Iniciar Sesión </string>
 
-<!--    Registro-->
+    <!-- Registrarse -->
 
-<!--    Menu Principal-->
+    <string name="registrarse_titulo">Registrarse</string>
+    <string name="registrarse_descripcion">!Registrate para poder acceder a todos los beneficios de la app</string>
+    <string name="registrarse_hint_nombre">Nombre y Apellido</string>
+    <string name="registrarse_hint_telefono">Teléfono</string>
+    <string name="registrarse_hint_email">Correo electrónico</string>
+    <string name="registrarse_hint_password">Contraseña</string>
+    <string name="registrarse_hint_password_confirm">Confirmar contraseña</string>
+    <string name="registrarse_boton_registrate">Continuar</string>
+
+    <!-- Iniciar Sesion -->
+
+
+    <string name="titulo_login">Iniciar Sesión </string>
+    <string name="login_descripcion">Ingresa usando correo y tu contraseña</string>
+    <string name="prompt_correo_electronico">Correo electrónico</string>
+    <string name="prompt_contrasenha">Contraseña</string>
+    <string name="boton_iniciar_sesion">Iniciar Sesión</string>
+
+
+    <!-- Menu Principal -->
+
+    <string name="tiulo_menu_principal">Menu Principal </string>
+    <string name="boton_catalogo">Catalogo</string>
+    <string name="boton_subir_anuncios">Subir Anuncios</string>
+    <string name="boton_bookmarks">Bookmarks</string>
+    <string name="boton_mi_perfil">Mi Perfil</string>
 
 <!--    Perfil-->
 
