@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <Button
-        android:id="@+id/boton_inicio_sesion"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Cargar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/orange"
-        android:textColor="@color/white"
-        android:onClick="cargarDatos"
-        />
+        android:id="@+id/btn_iniciar"
+        android:layout_width="328dp"
+        android:layout_height="52dp"
+        android:layout_alignParentLeft="true"
+        android:text="Iniciar Sesion"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="41dp"
+        android:backgroundTint="#FF9900"
+        android:layout_marginTop="458dp"/>
+
+    <Button
+        android:id="@+id/btn_registr"
+        android:layout_width="328dp"
+        android:layout_height="52dp"
+        android:text="Registrarse"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="41dp"
+        android:backgroundTint="#FF9900"
+        android:layout_marginTop="540dp"/>
 
 
 </RelativeLayout>
