@@ -12,10 +12,24 @@ import com.example.myapplication.data.DBHelper;
 
 public class InicioActivity extends AppCompatActivity  {
 
+    private DBHelper dbHelper;
+    private SQLiteDatabase database;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
+
+        dbHelper = new DBHelper(this);
+
+        // Obtener una instancia de la base de datos para escritura
+        database = dbHelper.getWritableDatabase();
+
+        // Realizar operaciones en la base de datos
+        // Por ejemplo, puedes insertar, actualizar o consultar datos aquí
+
+        // Cierra la base de datos cuando hayas terminado de usarla
+        dbHelper.close();
     }
 
     public void cargarDatos(View view) {

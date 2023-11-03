@@ -72,6 +72,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public synchronized void close() {
         super.close();
     }
+
+    public SQLiteDatabase getWritableDatabase() {
+        return super.getWritableDatabase();
+    }
 }
 
 
