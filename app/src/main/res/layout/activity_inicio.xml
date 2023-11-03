@@ -4,28 +4,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/inicio_logo"
+        android:layout_width="412dp"
+        android:layout_height="146dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="131dp"
+        android:layout_marginRight="-1dp"
+        android:background="@drawable/logo" />
 
     <Button
         android:id="@+id/btn_iniciar"
         android:layout_width="328dp"
         android:layout_height="52dp"
         android:layout_alignParentLeft="true"
-        android:text="Iniciar Sesion"
+        android:text="@string/boton_iniciar_sesion"
         android:layout_alignParentTop="true"
+        android:textColor="@color/white"
         android:layout_marginLeft="41dp"
         android:backgroundTint="#FF9900"
         android:layout_marginTop="458dp"/>
 
     <Button
-        android:id="@+id/btn_registr"
+        android:id="@+id/btn_registrarse"
         android:layout_width="328dp"
         android:layout_height="52dp"
-        android:text="Registrarse"
+        android:text="@string/inicio_boton_crearcuenta"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="41dp"
-        android:backgroundTint="#FF9900"
+        android:backgroundTint="@color/orange"
+        android:textColor="@color/white"
         android:layout_marginTop="540dp"/>
+
 
 
 </RelativeLayout>

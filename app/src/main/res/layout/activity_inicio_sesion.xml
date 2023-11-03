@@ -2,5 +2,75 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+        android:id="@+id/drawable_ca"
+        android:layout_width="412dp"
+        android:layout_height="146dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="131dp"
+        android:layout_marginRight="-1dp"
+        android:background="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/tv_inicar_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="71dp"
+            android:layout_marginTop="18dp"
+            android:background="#FFFFFF"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="4sp"
+            android:text="Inciar Sesion"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+        <EditText
+            android:id="@+id/et_correo"
+            android:layout_width="360dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="372dp"
+            android:background="@drawable/rounded_backround"
+            android:hint="Correo electrónico"
+            android:padding="10dp"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/et_contraseña"
+            android:layout_width="360dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="440dp"
+            android:background="@drawable/rounded_backround"
+            android:hint="Contraseña"
+            android:padding="10dp"
+            android:textColorHint="@color/black"
+
+            />
+
+        <Button
+            android:id="@+id/btn_continuar"
+            android:layout_width="327dp"
+            android:layout_height="52dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="43dp"
+            android:layout_marginTop="573dp"
+            android:backgroundTint="@color/orange"
+            android:text="Continuar"
+            android:textColor="@color/white" />
+
+
+    </RelativeLayout>
 
 </RelativeLayout>
