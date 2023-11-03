@@ -4,7 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
+    <ImageView
+        android:id="@+id/drawable_ca"
+        android:layout_width="412dp"
+        android:layout_height="146dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="131dp"
+        android:layout_marginRight="-1dp"
+        android:background="@drawable/logo" />
     <Button
         android:id="@+id/btn_iniciar"
         android:layout_width="328dp"
