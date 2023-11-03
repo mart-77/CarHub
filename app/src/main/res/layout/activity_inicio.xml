@@ -24,7 +24,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="41dp"
         android:backgroundTint="#FF9900"
-        android:layout_marginTop="458dp"/>
+        android:layout_marginTop="458dp"
+        android:onClick="cargarDatos"/>
 
     <Button
         android:id="@+id/btn_registr"
