@@ -1,6 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="43dp"
+        android:layout_height="35dp"
+        app:srcCompat="@drawable/arrows"
+        tools:layout_editor_absoluteX="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        tools:layout_editor_absoluteY="29dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="162dp"
+        android:layout_height="35dp"
+        android:text="Subir Anuncio"
+        android:textSize="25dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="30dp"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="29dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="650dp"
+        app:srcCompat="@drawable/toolbar_background" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="330dp"
+        android:layout_height="81dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="39dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="50dp"
+
+        app:srcCompat="@drawable/toolbar" />
+
+    <Button
+        android:id="@+id/toolbar_main_boton"
+        android:layout_width="71dp"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="37dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="620dp"
+        android:layout_marginRight="36dp"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="14dp" />
+
+    <Button
+        android:id="@+id/toolbar_chat_boton"
+        android:layout_width="43dp"
+        android:layout_height="63dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="140dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="620dp"
+        android:layout_marginRight="36dp"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="9dp" />
+
+    <Button
+        android:id="@+id/toolbar_faq_boton"
+        android:layout_width="43dp"
+        android:layout_height="63dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="224dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="620dp"
+        android:layout_marginRight="36dp"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="9dp" />
+
+    <Button
+        android:id="@+id/toolbar_acercade_boton"
+        android:layout_width="71dp"
+        android:layout_height="58dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="302dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="620dp"
+        android:layout_marginRight="36dp"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="12dp"
+        />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="38dp"
+        app:srcCompat="@drawable/textfield" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="175dp"
+        android:layout_marginLeft="38dp"
+        app:srcCompat="@drawable/textfield" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="38dp"
+        app:srcCompat="@drawable/textfield" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="325dp"
+        android:layout_marginLeft="38dp"
+        app:srcCompat="@drawable/textfield" />
+
+    <EditText
+        android:id="@+id/modelo_vehiculo_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="105dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Modelo de vehiculo" />
+
+    <EditText
+        android:id="@+id/titulo_anuncio_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="180dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Titulo de anuncio" />
+
+    <EditText
+        android:id="@+id/descripcion_anuncio_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="255dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Descripcion de anuncio" />
+
+    <EditText
+        android:id="@+id/precio_anuncio_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="330dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Precio" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="390dp"
+        android:layout_marginLeft="40dp"
+        app:srcCompat="@drawable/subir_imagen" />
+
+</RelativeLayout>
