@@ -10,6 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.data.DBHelper;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class InicioActivity extends AppCompatActivity  {
 
     private DBHelper dbHelper;
@@ -25,29 +29,20 @@ public class InicioActivity extends AppCompatActivity  {
         // Obtener una instancia de la base de datos para escritura
         database = dbHelper.getWritableDatabase();
 
-        // Realizar operaciones en la base de datos
-        // Por ejemplo, puedes insertar, actualizar o consultar datos aquí
-
         // Cierra la base de datos cuando hayas terminado de usarla
-        dbHelper.close();
-    }
-
-    public void cargarDatos(View view) {
-        DBHelper dbHelper = new DBHelper(getApplicationContext());
-        SQLiteDatabase db = dbHelper.openDatabase();
-
-// Realiza la inserción de datos en la tabla
-
-        String nombre = "Ejemplo";
-        String mail = "Ejemplo";
-        String telefono = "Ejemplo";
-        String password = "Ejemplo";
-
-        String insertQuery = "INSERT INTO usuario ( nombre,  mail, telefono, password) VALUES ( ?, ?, ?, ?)";
-        db.execSQL(insertQuery, new Object[]{nombre,  mail, telefono, password});
-
-// Cierra la base de datos cuando hayas terminado de usarla
 
     }
+
+
+    public void lanzarInicioSesion(View view) {
+        Intent intentCrearCuenta = new Intent( this, InicioSesionActivity.class );
+        startActivity( intentCrearCuenta );
+    }
+
+    public void lanzarRegistro(View view) {
+        Intent intentCrearCuenta = new Intent( this, RegistroActivity.class );
+        startActivity( intentCrearCuenta );
+    }
+
 
 }

@@ -18,7 +18,7 @@
         android:background="@drawable/logo" />
 
         <TextView
-            android:id="@+id/tv_inicar_s"
+            android:id="@+id/tv_iniciar_s"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -32,7 +32,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
         <EditText
-            android:id="@+id/et_correo"
+            android:id="@+id/et_email"
             android:layout_width="360dp"
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
@@ -42,9 +42,9 @@
             android:hint="Correo electrónico"
             android:padding="10dp"
             android:textColorHint="@color/black" />
-
         <EditText
-            android:id="@+id/et_contraseña"
+
+            android:id="@+id/et_password"
             android:layout_width="360dp"
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
@@ -54,7 +54,6 @@
             android:hint="Contraseña"
             android:padding="10dp"
             android:textColorHint="@color/black"
-
             />
 
         <Button
