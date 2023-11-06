@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="390dp"
-        app:srcCompat="@drawable/bookmarksBoton" />
+        app:srcCompat="@drawable/bookmarks_boton" />
 
     <Button
         android:id="@+id/bookmarks_boton"

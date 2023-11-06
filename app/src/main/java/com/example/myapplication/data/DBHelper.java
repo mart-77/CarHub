@@ -27,13 +27,66 @@ public class DBHelper extends SQLiteOpenHelper {
     Log.d(TAG, "Entra tabla");
 
         db.execSQL("CREATE TABLE usuario (" +
-                "                _id INTEGER PRIMARY KEY ," +
+                "                id_usuario INTEGER PRIMARY KEY ," +
                 "                nombre VARCHAR NOT NULL," +
                 "                mail VARCHAR NOT NULL," +
                 "                telefono VARCHAR NOT NULL," +
                 "                password VARCHAR NOT NULL" +
                 ")"
         );
+        db.execSQL("CREATE TABLE publicacion (" +
+                "       id_publicacion INTEGER," +
+                "       id_usuario INTEGER, " +
+                "        imagen BLOB," +
+                "        titulo VARCHAR," +
+                "        descripcion VARCHAR," +
+                "        estado VARCHAR," +
+                "        precio VARCHAR," +
+                "        fechaPublicacion DATE, " +
+                "        CONSTRAINT Publicacion_pk PRIMARY KEY (id_publicacion,id_usuario)," +
+                "       CONSTRAINT publicacion_FK FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)" +
+                ")"
+        );
+        db.execSQL("CREATE TABLE comentario (" +
+                "id_comentario INTEGER," +
+                "id_publicacion INTEGER," +
+                "id_usuario INTEGER," +
+                "contComentario VARCHAR," +
+                "fecha DATE," +
+                "CONSTRAINT Comentario_pk PRIMARY KEY (id_comentario,id_publicacion,id_usuario)," +
+                "CONSTRAINT comentario_FK FOREIGN KEY (id_publicacion,id_usuario) REFERENCES publicacion(id_publicacion,id_usuario)," +
+                "CONSTRAINT comentario_FK_1 FOREIGN KEY (id_publicacion,id_usuario) REFERENCES publicacion(id_publicacion,id_usuario)" +
+                ")"
+        );
+        db.execSQL("CREATE TABLE chat (" +
+                "id_chat INTEGER," +
+                "id_usuario INTEGER," +
+                "usuarioChateado INTEGER," +
+                "CONSTRAINT Chat_pk PRIMARY KEY (id_chat,id_usuario)," +
+                "CONSTRAINT chat_FK FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)" +
+                ")"
+        );
+        db.execSQL("CREATE TABLE mensaje (" +
+                "id_mensaje INTEGER," +
+                "id_chat INTEGER," +
+                "usuarioChateado INTEGER," +
+                "contMensaje VARCHAR," +
+                "CONSTRAINT Mensaje_pk PRIMARY KEY (id_mensaje,id_chat,usuarioChateado)," +
+                "CONSTRAINT mensaje_FK FOREIGN KEY (id_chat,id_mensaje,usuarioChateado) REFERENCES chat(id_chat,id_usuario,usuarioChateado)," +
+                "CONSTRAINT mensaje_FK_1 FOREIGN KEY (id_chat,id_chat,usuarioChateado) REFERENCES chat(id_chat,id_usuario,usuarioChateado)" +
+                ")"
+        );
+        db.execSQL("CREATE TABLE bookmarks (" +
+                "id_bookmark SERIAL," +
+                "id_usuario SERIAL," +
+                "id_publicacion SERIAL," +
+                "CONSTRAINT bookmarks_pk PRIMARY KEY (id_bookmark,id_usuario,id_publicacion)," +
+                "CONSTRAINT bookmarks_FK FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)," +
+                "CONSTRAINT bookmarks_FK_1 FOREIGN KEY (id_publicacion,id_usuario) REFERENCES publicacion(id_publicacion,id_usuario)" +
+                ")"
+        );
+
+
         Log.d(TAG, "Sale Tabla");
     }
 
