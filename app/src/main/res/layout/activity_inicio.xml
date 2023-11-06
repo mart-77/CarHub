@@ -22,7 +22,7 @@
         android:layout_alignParentLeft="true"
         android:text="Iniciar Sesion"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="41dp"
+        android:layout_marginLeft="42dp"
         android:backgroundTint="#FF9900"
         android:layout_marginTop="458dp"
         android:onClick="lanzarInicioSesion"/>
