@@ -37,16 +37,17 @@ public class InicioActivity extends AppCompatActivity  {
         SQLiteDatabase db = dbHelper.openDatabase();
 
 // Realiza la inserción de datos en la tabla
+
         String nombre = "Ejemplo";
         String mail = "Ejemplo";
         String telefono = "Ejemplo";
         String password = "Ejemplo";
 
-        String insertQuery = "INSERT INTO usuario (nombre,  mail, telefono, password) VALUES (?, ?, ?, ?)";
-        db.execSQL(insertQuery, new Object[]{nombre, mail, telefono, password});
+        String insertQuery = "INSERT INTO usuario ( nombre,  mail, telefono, password) VALUES ( ?, ?, ?, ?)";
+        db.execSQL(insertQuery, new Object[]{nombre,  mail, telefono, password});
 
 // Cierra la base de datos cuando hayas terminado de usarla
-        db.close();
+
     }
 
 }

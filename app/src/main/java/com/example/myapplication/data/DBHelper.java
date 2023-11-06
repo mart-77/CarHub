@@ -24,16 +24,17 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+    Log.d(TAG, "Entra tabla");
 
         db.execSQL("CREATE TABLE usuario (" +
-                "                id_usuario INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "                _id INTEGER PRIMARY KEY ," +
                 "                nombre VARCHAR NOT NULL," +
                 "                mail VARCHAR NOT NULL," +
                 "                telefono VARCHAR NOT NULL," +
                 "                password VARCHAR NOT NULL" +
                 ")"
         );
-
+        Log.d(TAG, "Sale Tabla");
     }
 
     @Override
