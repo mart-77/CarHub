@@ -1,6 +1,7 @@
 package com.example.myapplication.data;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -16,11 +17,18 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "carhubdb.sqlite";
     private static final int DB_VERSION = 1;
     private final Context context;
+    private static final String TABLE_NAME = "usuario";
+    private static final String COLUMN_EMAIL = "mail";
+    private static final String COLUMN_PASSWORD = "password";
+
 
     public DBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         this.context = context;
     }
+
+
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -92,33 +100,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Maneja las actualizaciones de la base de datos aquí si es necesario
-    }
 
-    public void copyDatabase() {
-        try {
-            InputStream inputStream = context.getAssets().open(DB_NAME);
-            String outFileName = context.getDatabasePath(DB_NAME).getPath();
-
-            OutputStream outputStream = new FileOutputStream(outFileName);
-
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = inputStream.read(buffer)) > 0) {
-                outputStream.write(buffer, 0, length);
-            }
-
-            outputStream.flush();
-            outputStream.close();
-            inputStream.close();
-        } catch (IOException e) {
-            Log.e("DBHelper", "Error al copiar la base de datos: " + e.getMessage());
-        }
-    }
-
-    public SQLiteDatabase openDatabase() throws SQLException {
-        String dbPath = context.getDatabasePath(DB_NAME).getPath();
-        return SQLiteDatabase.openDatabase(dbPath, null, SQLiteDatabase.OPEN_READWRITE);
     }
 
     @Override
@@ -129,6 +111,30 @@ public class DBHelper extends SQLiteOpenHelper {
     public SQLiteDatabase getWritableDatabase() {
         return super.getWritableDatabase();
     }
+
+    public SQLiteDatabase getReadableDatase(){
+        return super.getReadableDatabase();
+    }
+
+    public boolean comprobarCredenciales(String email, String password) {
+        SQLiteDatabase database = this.getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE_NAME  + "WHERE" + COLUMN_EMAIL + " = ? AND " + COLUMN_PASSWORD + " = ? ";
+        Cursor cursor = database.rawQuery(query, new String[]{email,password});
+
+        if (cursor.getCount()> 0 ) {
+            cursor.close();
+            return true;
+
+        } else {
+            cursor.close();
+            return false;
+
+        }
+    }
+
+
 }
+
+
 
 

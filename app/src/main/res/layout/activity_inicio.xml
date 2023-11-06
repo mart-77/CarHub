@@ -25,10 +25,10 @@
         android:layout_marginLeft="41dp"
         android:backgroundTint="#FF9900"
         android:layout_marginTop="458dp"
-        android:onClick="cargarDatos"/>
+        android:onClick="lanzarInicioSesion"/>
 
     <Button
-        android:id="@+id/btn_registr"
+        android:id="@+id/btn_registrar"
         android:layout_width="328dp"
         android:layout_height="52dp"
         android:text="Registrarse"
@@ -36,7 +36,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="41dp"
         android:backgroundTint="#FF9900"
-        android:layout_marginTop="540dp"/>
+        android:layout_marginTop="540dp"
+        android:onClick="lanzarRegistro"/>
 
 
 </RelativeLayout>
