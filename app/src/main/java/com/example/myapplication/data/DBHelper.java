@@ -112,9 +112,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return super.getWritableDatabase();
     }
 
-    public SQLiteDatabase getReadableDatase(){
-        return super.getReadableDatabase();
-    }
 
     public boolean comprobarCredenciales(String email, String password) {
         SQLiteDatabase database = this.getReadableDatabase();

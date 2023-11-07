@@ -36,6 +36,7 @@
     <string name="boton_mi_perfil">Mi Perfil</string>
 
 <!--    Perfil-->
+    <string name="titulo_perfil"> Mi Perfil </string>
 
 <!--    Subir Anuncio-->
 
@@ -47,19 +48,7 @@
 
 <!--    FAQ-->
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <resources>
-        <string-array name="faq1_array">
-            <item>Mercury</item>
-            <item>Venus</item>
-            <item>Earth</item>
-            <item>Mars</item>
-            <item>Jupiter</item>
-            <item>Saturn</item>
-            <item>Uranus</item>
-            <item>Neptune</item>
-        </string-array>
-    </resources>
+
 
 <!--    Bookmarks-->
 

@@ -27,6 +27,7 @@
         android:layout_marginTop="125dp"
         android:layout_marginRight="36dp"
         android:background="@android:color/transparent"
+        android:onClick="lanzarCatalogo"
         />
 
     <ImageView
@@ -44,6 +45,7 @@
         android:layout_marginTop="255dp"
         android:layout_marginRight="36dp"
         android:background="@android:color/transparent"
+        android:onClick="lanzarSubirAnunio"
         />
 
     <ImageView
@@ -61,6 +63,7 @@
         android:layout_marginTop="385dp"
         android:layout_marginRight="36dp"
         android:background="@android:color/transparent"
+        android:onClick="lanzarBooksmarks"
         />
 
     <ImageView
@@ -78,6 +81,7 @@
         android:layout_marginTop="515dp"
         android:layout_marginRight="36dp"
         android:background="@android:color/transparent"
+        android:onClick="lanzarPerfil"
         />
 
     <ImageButton
@@ -125,7 +129,9 @@
         android:layout_marginTop="620dp"
         android:layout_marginRight="36dp"
         android:background="@android:color/transparent"
-        android:layout_marginBottom="9dp" />
+        android:layout_marginBottom="9dp"
+        android:onClick="lanzarChat"
+        />
 
     <Button
         android:id="@+id/toolbar_faq_boton"
@@ -138,7 +144,8 @@
         android:layout_marginTop="620dp"
         android:layout_marginRight="36dp"
         android:background="@android:color/transparent"
-        android:layout_marginBottom="9dp" />
+        android:layout_marginBottom="9dp"
+        android:onClick="lanzarFAQ"/>
 
     <Button
         android:id="@+id/toolbar_acercade_boton"
@@ -152,6 +159,7 @@
         android:layout_marginRight="36dp"
         android:background="@android:color/transparent"
         android:layout_marginBottom="12dp"
+        android:onClick="lanzarAcercaDe"
         />
 
 </RelativeLayout>

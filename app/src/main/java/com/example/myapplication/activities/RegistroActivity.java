@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,16 +42,22 @@ public class RegistroActivity extends AppCompatActivity {
         String password = campoPassword.getText().toString();
         String passwordConfirm = campoPasswordConfirm.getText().toString();
 
+
         if (mail.equals("") || nombre.equals("") || telefono.equals("") || password.equals("") || passwordConfirm.equals("")) {
+            Toast.makeText(this, "Todos los campos deben estar completos!", Toast.LENGTH_SHORT).show();
 
         } else {
 
         if (password.equals(passwordConfirm)) {
             dbHelper.crearCuenta(nombre, mail, telefono, password);
             Log.d(TAG, "Cuanta Creada");
+            Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_SHORT).show();
 
             Intent iniciarSesion = new Intent(this, MenuPrincipalActivity.class);
             startActivity(iniciarSesion);
+        } else {
+            Log.d(TAG, "Contraseñas no coinciden");
+            Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
         }
         }
     }
