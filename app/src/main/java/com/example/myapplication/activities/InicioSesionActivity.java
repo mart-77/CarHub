@@ -64,7 +64,6 @@ public class InicioSesionActivity extends AppCompatActivity {
 
 
 
-//    TODO: cambiar tipo de texto a password en layout
 
 
 }
