@@ -132,6 +132,12 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void crearCuenta (String nombre, String mail, String telefono, String password) {
+        SQLiteDatabase database = this.getReadableDatabase();
+        String insertQuery = "INSERT INTO usuario ( nombre, mail, telefono, password) VALUES ( ?, ?, ?, ?)";
+        database.execSQL(insertQuery, new Object[]{nombre, mail, telefono, password});
+    }
+
 
 }
 

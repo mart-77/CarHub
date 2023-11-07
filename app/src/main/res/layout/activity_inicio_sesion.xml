@@ -44,7 +44,6 @@
             android:textColorHint="@color/black" />
 
         <EditText
-
             android:id="@+id/et_password"
             android:layout_width="360dp"
             android:layout_height="50dp"

@@ -76,10 +76,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="620dp"
         android:layout_marginLeft="20dp"
-        app:srcCompat="@drawable/btn_continuar" />
+        app:srcCompat="@drawable/btn_continuar"
+        />
+
+    <Button
+        android:id="@+id/btn_continuar_registrar"
+        android:layout_width="341dp"
+        android:layout_height="63dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="615dp"
+        android:background="@android:color/transparent"
+        android:onClick="registrarCuenta"
+        />
+
+
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/et_mail_register"
         android:layout_width="302dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="55dp"
@@ -89,7 +104,7 @@
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/et_nombre_register"
         android:layout_width="299dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="55dp"
@@ -99,34 +114,34 @@
         android:hint="Nombre y apellido" />
 
     <EditText
-        android:id="@+id/editTextPhone2"
+        android:id="@+id/et_telefono_register"
         android:layout_width="306dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="55dp"
         android:layout_marginTop="365dp"
         android:ems="10"
-        android:inputType="phone"
+        android:inputType="text"
         android:hint="Telefono" />
 
     <EditText
-        android:id="@+id/editTextNumberPassword"
+        android:id="@+id/et_password_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="55dp"
         android:layout_marginTop="445dp"
         android:ems="10"
         android:hint="Contraseña"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"/>
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/et_p_r_confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginLeft="55dp"
         android:layout_marginTop="525dp"
-        android:hint="Contraseña"
-        android:inputType="textPassword" />
+        android:hint="Confirmar Contraseña"
+        android:inputType="textPassword"/>
 
 
 </RelativeLayout>
