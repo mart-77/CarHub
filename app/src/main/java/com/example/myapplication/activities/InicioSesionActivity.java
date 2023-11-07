@@ -38,7 +38,8 @@ public class InicioSesionActivity extends AppCompatActivity {
         String password = campoPassword.getText().toString();
 
         if (email.equals("") || password.equals("")) {
-            Log.d(TAG, "Campos obligatorios"); // TODO: Cambiar los tag por Toasts
+            Log.d(TAG, "Campos obligatorios");
+            Toast.makeText(this, "Porfavor, llenar todos los campos.", Toast.LENGTH_SHORT).show();
         } else {
 
             if (dbHelper.comprobarCredenciales(email, password)) {
@@ -46,13 +47,23 @@ public class InicioSesionActivity extends AppCompatActivity {
 
                 Intent iniciarSesion = new Intent(this, MenuPrincipalActivity.class);
                 startActivity(iniciarSesion);
+                Toast.makeText(this, "Correcto. Accediendo al sistema...", Toast.LENGTH_SHORT).show();
+
+
 
             } else {
                 Log.d(TAG, "Incorrecto");
+                Toast.makeText(this, "Credenciales incorrectas.", Toast.LENGTH_SHORT).show();
             }
         }
 
     }
+
+
+
+
+
+
 //    TODO: cambiar tipo de texto a password en layout
 
 
