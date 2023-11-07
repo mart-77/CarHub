@@ -2,6 +2,7 @@ package com.example.myapplication.activities;
 
 import static com.example.myapplication.data.DBHelper.*;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,15 +37,23 @@ public class InicioSesionActivity extends AppCompatActivity {
         String email = campoEmail.getText().toString();
         String password = campoPassword.getText().toString();
 
-        if (dbHelper.comprobarCredenciales(email, password)) {
-            Log.d(TAG, "Correcto");
+        if (email.equals("") || password.equals("")) {
+            Log.d(TAG, "Campos obligatorios"); // TODO: Cambiar los tag por Toasts
         } else {
-            Log.d(TAG, "Incorrecto");
 
+            if (dbHelper.comprobarCredenciales(email, password)) {
+                Log.d(TAG, "Correcto");
+
+                Intent iniciarSesion = new Intent(this, MenuPrincipalActivity.class);
+                startActivity(iniciarSesion);
+
+            } else {
+                Log.d(TAG, "Incorrecto");
+            }
         }
 
-
     }
+//    TODO: cambiar tipo de texto a password en layout
 
 
 }

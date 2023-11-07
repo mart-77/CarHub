@@ -85,7 +85,7 @@
         android:layout_marginLeft="55dp"
         android:layout_marginTop="205dp"
         android:ems="10"
-        android:text="Correo Electronico"
+        android:hint="Correo Electronico"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -96,7 +96,7 @@
         android:layout_marginTop="285dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Nombre y apellido" />
+        android:hint="Nombre y apellido" />
 
     <EditText
         android:id="@+id/editTextPhone2"
@@ -106,7 +106,7 @@
         android:layout_marginTop="365dp"
         android:ems="10"
         android:inputType="phone"
-        android:text="Telefono" />
+        android:hint="Telefono" />
 
     <EditText
         android:id="@+id/editTextNumberPassword"
@@ -115,7 +115,7 @@
         android:layout_marginLeft="55dp"
         android:layout_marginTop="445dp"
         android:ems="10"
-        android:text="Contraseña"
+        android:hint="Contraseña"
         android:inputType="textPassword" />
 
     <EditText
@@ -125,7 +125,7 @@
         android:ems="10"
         android:layout_marginLeft="55dp"
         android:layout_marginTop="525dp"
-        android:text="Contraseña"
+        android:hint="Contraseña"
         android:inputType="textPassword" />
 
 

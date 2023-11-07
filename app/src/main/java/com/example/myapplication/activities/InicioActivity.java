@@ -33,15 +33,14 @@ public class InicioActivity extends AppCompatActivity  {
 
     }
 
-
     public void lanzarInicioSesion(View view) {
-        Intent intentCrearCuenta = new Intent( this, InicioSesionActivity.class );
-        startActivity( intentCrearCuenta );
+        Intent lanzarInicioSesion = new Intent( this, InicioSesionActivity.class );
+        startActivity( lanzarInicioSesion );
     }
 
     public void lanzarRegistro(View view) {
-        Intent intentCrearCuenta = new Intent( this, RegistroActivity.class );
-        startActivity( intentCrearCuenta );
+        Intent lanzarRegistro = new Intent( this, RegistroActivity.class );
+        startActivity( lanzarRegistro );
     }
 
 

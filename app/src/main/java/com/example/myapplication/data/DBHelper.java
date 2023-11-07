@@ -118,7 +118,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public boolean comprobarCredenciales(String email, String password) {
         SQLiteDatabase database = this.getReadableDatabase();
-        String query = "SELECT * FROM " + TABLE_NAME  + "WHERE" + COLUMN_EMAIL + " = ? AND " + COLUMN_PASSWORD + " = ? ";
+        String query = "SELECT * FROM " + TABLE_NAME  + " WHERE " + COLUMN_EMAIL + " = ? AND " + COLUMN_PASSWORD + " = ? ";
         Cursor cursor = database.rawQuery(query, new String[]{email,password});
 
         if (cursor.getCount()> 0 ) {
