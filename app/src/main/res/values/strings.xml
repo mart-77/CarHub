@@ -48,7 +48,16 @@
 
 <!--    FAQ-->
 
-
+    <string name="new1">CarHub es una nueva aplicacion para vender y comprar vehiculos usados.</string>
+    <string name="new2">CarHub fue diseñada por Felipe Nelson, Sebastian Ovelar y Martin Rodriguez.</string>
+    <string name="new3">CarHub fue fundado en Noviembre de 2023.</string>
+    <string name="new4">CarHub fue diseñado para facilitar la venta y compra de autos usados.</string>
+    <string name="new5">La aplicacion ofrece una plataforma para publicar anuncios de autos en venta.</string>
+    <string name="new6">CarHub es completamente gratuito!</string>
+    <string name="new7">En la seccion de Chat, puedes comunicarte con uno de nuestros trabajadores!</string>
+    <string name="new8">La app fue diseñada en la Universidad Paraguayo Alemana por un grupo de estudiantes.</string>
+    <string name="new9">El objetivo de CarHub es aliviar las preocupaciones y eliminar inconvenientes a la hora de vender autos.</string>
+    <string name="new10">La mision de CarHub inc. es ayudar a las personas a movilizarse!</string>
 
 <!--    Bookmarks-->
 
