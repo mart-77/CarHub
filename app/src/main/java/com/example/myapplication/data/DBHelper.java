@@ -2,15 +2,9 @@ package com.example.myapplication.data;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 
 public class DBHelper extends SQLiteOpenHelper {
     String TAG = "DBHelper";
@@ -18,8 +12,12 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
     private final Context context;
     private static final String TABLE_NAME = "usuario";
+    private static final String COLUMN_ID = "id_usuario";
     private static final String COLUMN_EMAIL = "mail";
     private static final String COLUMN_PASSWORD = "password";
+    private static final String COLUMN_NOMBRE = "nombre";
+    private static long usuarioLogueado;
+
 
 
     public DBHelper(Context context) {
@@ -43,7 +41,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 ")"
         );
         db.execSQL("CREATE TABLE publicacion (" +
-                "       id_publicacion INTEGER," +
+                "       id_publicacion INTEGER PRIMARY KEY," +
                 "       id_usuario INTEGER, " +
                 "        imagen BLOB," +
                 "        titulo VARCHAR," +
@@ -51,56 +49,48 @@ public class DBHelper extends SQLiteOpenHelper {
                 "        estado VARCHAR," +
                 "        precio VARCHAR," +
                 "        fechaPublicacion DATE, " +
-                "        CONSTRAINT Publicacion_pk PRIMARY KEY (id_publicacion,id_usuario)," +
                 "       CONSTRAINT publicacion_FK FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)" +
                 ")"
         );
         db.execSQL("CREATE TABLE comentario (" +
-                "id_comentario INTEGER," +
+                "id_comentario INTEGER PRIMARY KEY," +
                 "id_publicacion INTEGER," +
                 "id_usuario INTEGER," +
                 "contComentario VARCHAR," +
                 "fecha DATE," +
-                "CONSTRAINT Comentario_pk PRIMARY KEY (id_comentario,id_publicacion,id_usuario)," +
                 "CONSTRAINT comentario_FK FOREIGN KEY (id_publicacion,id_usuario) REFERENCES publicacion(id_publicacion,id_usuario)," +
                 "CONSTRAINT comentario_FK_1 FOREIGN KEY (id_publicacion,id_usuario) REFERENCES publicacion(id_publicacion,id_usuario)" +
                 ")"
         );
         db.execSQL("CREATE TABLE chat (" +
-                "id_chat INTEGER," +
+                "id_chat INTEGER PRIMARY KEY," +
                 "id_usuario INTEGER," +
                 "usuarioChateado INTEGER," +
-                "CONSTRAINT Chat_pk PRIMARY KEY (id_chat,id_usuario)," +
                 "CONSTRAINT chat_FK FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)" +
                 ")"
         );
         db.execSQL("CREATE TABLE mensaje (" +
-                "id_mensaje INTEGER," +
+                "id_mensaje INTEGER PRIMARY KEY," +
                 "id_chat INTEGER," +
                 "usuarioChateado INTEGER," +
                 "contMensaje VARCHAR," +
-                "CONSTRAINT Mensaje_pk PRIMARY KEY (id_mensaje,id_chat,usuarioChateado)," +
                 "CONSTRAINT mensaje_FK FOREIGN KEY (id_chat,id_mensaje,usuarioChateado) REFERENCES chat(id_chat,id_usuario,usuarioChateado)," +
                 "CONSTRAINT mensaje_FK_1 FOREIGN KEY (id_chat,id_chat,usuarioChateado) REFERENCES chat(id_chat,id_usuario,usuarioChateado)" +
                 ")"
         );
         db.execSQL("CREATE TABLE bookmarks (" +
-                "id_bookmark SERIAL," +
-                "id_usuario SERIAL," +
-                "id_publicacion SERIAL," +
-                "CONSTRAINT bookmarks_pk PRIMARY KEY (id_bookmark,id_usuario,id_publicacion)," +
+                "id_bookmark INTEGER PRIMARY KEY," +
+                "id_usuario INTEGER," +
+                "id_publicacion INTEGER," +
                 "CONSTRAINT bookmarks_FK FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)," +
                 "CONSTRAINT bookmarks_FK_1 FOREIGN KEY (id_publicacion,id_usuario) REFERENCES publicacion(id_publicacion,id_usuario)" +
                 ")"
         );
-
-
         Log.d(TAG, "Sale Tabla");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 
     @Override
@@ -112,6 +102,9 @@ public class DBHelper extends SQLiteOpenHelper {
         return super.getWritableDatabase();
     }
 
+    public SQLiteDatabase getReadableDatabase() {
+        return super.getReadableDatabase();
+    }
 
     public boolean comprobarCredenciales(String email, String password) {
         SQLiteDatabase database = this.getReadableDatabase();
@@ -131,11 +124,45 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void crearCuenta (String nombre, String mail, String telefono, String password) {
         SQLiteDatabase database = this.getReadableDatabase();
-        String insertQuery = "INSERT INTO usuario ( nombre, mail, telefono, password) VALUES ( ?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO usuario (nombre, mail, telefono, password) VALUES ( ?, ?, ?, ?)";
         database.execSQL(insertQuery, new Object[]{nombre, mail, telefono, password});
     }
 
 
+
+//    Usuario
+
+
+    public long getUsuarioID (String mail) {
+        SQLiteDatabase database = this.getReadableDatabase();
+        String[] columns = {COLUMN_ID};
+        String selection = COLUMN_EMAIL + " = ?";
+        String[] selectionArgs = {mail} ;
+
+        Cursor cursor = database.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+
+        long userID = -1;
+        if (cursor.moveToFirst()) {
+            userID = cursor.getLong(cursor.getColumnIndex(COLUMN_ID));
+
+        }
+        cursor.close();
+        return userID;
+    }
+
+    public static void setUsuarioLogueado(long userID) {
+        usuarioLogueado = userID;
+    }
+
+    public static long getUsuarioLogueado() {
+        return usuarioLogueado;
+    }
+
+    public void subirAnuncio (Long usuarioID, String titulo, String descripcion, String estado, String precio, byte[] imagenBytes) {
+        SQLiteDatabase database = this.getReadableDatabase();
+        String insertQuery = "INSERT INTO publicacion (id_usuario, titulo, descripcion, estado, precio, imagen) VALUES (?, ?, ? , ? , ?, ?)";
+        database.execSQL(insertQuery, new Object[]{usuarioID, titulo, descripcion, estado, precio, imagenBytes});
+    }
 }
 
 

@@ -2,4 +2,8 @@
 <resources>
     <style name="Theme.MyApplication" parent="android:Theme.Material.Light.NoActionBar"/>
 
+    <style name="texto_nombre">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#2C2C2C</item>
+    </style>
 </resources>

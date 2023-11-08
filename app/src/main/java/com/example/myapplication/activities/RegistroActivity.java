@@ -1,5 +1,7 @@
 package com.example.myapplication.activities;
 
+import static com.example.myapplication.data.DBHelper.setUsuarioLogueado;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -53,7 +55,7 @@ public class RegistroActivity extends AppCompatActivity {
             Log.d(TAG, "Cuanta Creada");
             Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_SHORT).show();
 
-            Intent iniciarSesion = new Intent(this, MenuPrincipalActivity.class);
+            Intent iniciarSesion = new Intent(this, InicioSesionActivity.class);
             startActivity(iniciarSesion);
         } else {
             Log.d(TAG, "Contraseñas no coinciden");
@@ -61,6 +63,8 @@ public class RegistroActivity extends AppCompatActivity {
         }
         }
     }
+
+
 
 
 

@@ -134,34 +134,34 @@
         app:srcCompat="@drawable/textfield" />
 
     <EditText
-        android:id="@+id/modelo_vehiculo_input"
+        android:id="@+id/titulo_vehiculo_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="90dp"
         android:layout_marginTop="105dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Modelo de vehiculo" />
-
-    <EditText
-        android:id="@+id/titulo_anuncio_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="180dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Titulo de anuncio" />
+        android:hint="Titulo del anuncio" />
 
     <EditText
         android:id="@+id/descripcion_anuncio_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="90dp"
+        android:layout_marginTop="180dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Descripcion del anuncio" />
+
+    <EditText
+        android:id="@+id/estado_anuncio_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
         android:layout_marginTop="255dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Descripcion de anuncio" />
+        android:hint="Estado" />
 
     <EditText
         android:id="@+id/precio_anuncio_input"
@@ -171,14 +171,35 @@
         android:layout_marginTop="330dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Precio" />
+        android:hint="Precio" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/subir_imagen"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="390dp"
+        android:layout_height="169dp"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="390dp"
         app:srcCompat="@drawable/subir_imagen" />
+
+    <Button
+        android:id="@+id/btn_subir_imagen"
+        android:layout_width="324dp"
+        android:layout_height="169dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="390dp"
+        android:backgroundTint="@android:color/transparent" />
+
+    <Button
+        android:id="@+id/btn_publicar"
+        android:layout_width="327dp"
+        android:layout_height="52dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="43dp"
+        android:layout_marginTop="573dp"
+        android:backgroundTint="@color/orange"
+        android:text="Publicar"
+        android:textColor="@color/white"
+        android:onClick="subirAnuncio"/>
 
 </RelativeLayout>
