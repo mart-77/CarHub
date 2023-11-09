@@ -26,7 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="595dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="85dp" />
+        android:layout_marginBottom="85dp"
+        />
 
     <ImageButton
         android:id="@+id/imageButton2"

@@ -1,7 +1,11 @@
 package com.example.myapplication.activities;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -38,9 +42,19 @@ public class CatalogoActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.lv_publicaciones);
 
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int posicion, long l) {
+                Log.i(TAG, "itemClick grupo" + posicion);
+                Intent intent = new Intent(CatalogoActivity.this, PublicacionActivity.class);
+                intent.putExtra("idGrupo", posicion);
+                startActivity(intent);
+            }
+        });
 
 
     }
+
 
 
 
