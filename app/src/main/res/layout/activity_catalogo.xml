@@ -6,15 +6,14 @@
     android:layout_height="match_parent">
 
 
-
     <TextView
         android:id="@+id/tv_inicar_s"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="71dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginLeft="69dp"
+        android:layout_marginTop="12dp"
         android:background="#FFFFFF"
         android:gravity="center_vertical"
         android:lineSpacingExtra="4sp"
@@ -27,7 +26,11 @@
         android:layout_height="595dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="85dp"
-        />
+        android:paddingBottom="20dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="20dp"
+        android:clipToPadding="false"
+        android:layout_marginStart="50dp"/>
 
     <ImageButton
         android:id="@+id/imageButton2"

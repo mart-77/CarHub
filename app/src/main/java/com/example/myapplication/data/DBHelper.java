@@ -1,5 +1,6 @@
 package com.example.myapplication.data;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,8 +14,10 @@ public class DBHelper extends SQLiteOpenHelper {
     private final Context context;
     private static final String TABLE_NAME = "usuario";
     private static final String TABLE_PUBLICACIONES = "publicacion";
+    private static final String TABLE_BOOKMARK = "bookmarks";
     private static final String COLUMN_ID = "id_usuario";
     public static final String COLUMN_ID_PUBLICACION = "id_publicacion";
+    public static final String COLUMN_ID_BOOKMARK = "id_bookmark";
     public static final String COLUMN_EMAIL = "mail";
     private static final String COLUMN_PASSWORD = "password";
     public static final String COLUMN_NOMBRE = "nombre";
@@ -191,6 +194,26 @@ SQLiteDatabase database = getReadableDatabase();
     }
 
 
+    public void agregarFavorito(long publicacionId, long usuarioId) {
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_ID_PUBLICACION, publicacionId);
+        values.put(COLUMN_ID, usuarioId);
+
+        // Insertar en la tabla de favoritos
+        database.insert(TABLE_BOOKMARK, null, values);
+
+        // Cerrar la conexión a la base de datos
+        database.close();
+    }
+
+    public Cursor obtenerTodasLasPublicacionesFavoritas() {
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        return database.rawQuery("SELECT "+ COLUMN_ID_BOOKMARK + " AS _id, " + COLUMN_ID_PUBLICACION + ", " + COLUMN_ID + " FROM " + TABLE_BOOKMARK, null);
+
+    }
 
 }
 

@@ -1,10 +1,6 @@
 package com.example.myapplication.activities;
 
-import static com.example.myapplication.data.DBHelper.*;
-
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 import com.example.myapplication.data.DBHelper;
-import com.example.myapplication.data.Usuario;
 
 public class InicioSesionActivity extends AppCompatActivity {
     private EditText campoEmail;

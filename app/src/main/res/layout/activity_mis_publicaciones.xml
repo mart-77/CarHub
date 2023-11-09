@@ -6,8 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
     <TextView
         android:id="@+id/tv_iniciar_s"
         android:layout_width="wrap_content"
@@ -17,13 +15,12 @@
         android:background="#FFFFFF"
         android:gravity="center_vertical"
         android:lineSpacingExtra="4sp"
-        android:text="Bookmarks"
+        android:text="Mis Publicaciones"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="16dp" />
+       app:layout_constraintBottom_toTopOf="@id/lv_grupos_cercanos" />
 
     <ListView
-        android:id="@+id/lv_bookmark"
+        android:id="@+id/lv_grupos_cercanos"
         android:layout_width="412dp"
         android:layout_height="578dp"
         android:layout_marginBottom="88dp"

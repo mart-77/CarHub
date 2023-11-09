@@ -26,12 +26,11 @@ public class CatalogoActivity extends AppCompatActivity {
         dbHelper = new DBHelper(this);
 
         Cursor cursor = dbHelper.getCatalogo();
-//        long userId = DBHelper.getUsuarioLogueado();
-//        Cursor cursor1 = dbHelper.getUsuarioData(userId);
+
 
 
         String [] fromColumns = {DBHelper.COLUMN_TITULO, DBHelper.COLUMN_PRECIO};
-        int[] toViews = {R.id.tv_titulo_publicacion, R.id.tv_precio_publicacion};
+        int[] toViews = {R.id.tv_nombre_publicacion, R.id.tv_precio_publicacion};
 
         adapter = new SimpleCursorAdapter(
                 this,
@@ -54,23 +53,24 @@ public class CatalogoActivity extends AppCompatActivity {
                 Log.d(TAG, "cursor" + cursor);
 
                 // Extrae los datos del Cursor
-                String titulo = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_TITULO));
-                String descripcion = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_DESCRIPCION));
-                String precio = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_PRECIO));
-                String estado = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_ESTADO));
-//                String nombre = cursor1.getString(cursor.getColumnIndex(DBHelper.COLUMN_NOMBRE));
 
-                // Crea un Intent para abrir la actividad VerDatosPublicacion
-                Intent intent = new Intent(CatalogoActivity.this, PublicacionActivity.class);
-                // Pasa los datos como extras al Intent
-                intent.putExtra("titulo", titulo);
-                intent.putExtra("descripcion", descripcion);
-                intent.putExtra("precio", precio);
-                intent.putExtra("estado", estado);
-//                intent.putExtra("nombre", nombre);
 
-                // Inicia la nueva actividad
-                startActivity(intent);
+                    String titulo = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_TITULO));
+                    String descripcion = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_DESCRIPCION));
+                    String precio = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_PRECIO));
+                    String estado = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_ESTADO));
+
+                    // Crea un Intent para abrir la actividad VerDatosPublicacion
+                    Intent intent = new Intent(CatalogoActivity.this, PublicacionActivity.class);
+                    // Pasa los datos como extras al Intent
+                    intent.putExtra("titulo", titulo);
+                    intent.putExtra("descripcion", descripcion);
+                    intent.putExtra("precio", precio);
+                    intent.putExtra("estado", estado);
+
+                    // Inicia la nueva actividad
+                    startActivity(intent);
+
             }
         });
 
