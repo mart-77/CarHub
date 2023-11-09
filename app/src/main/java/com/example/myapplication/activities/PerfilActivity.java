@@ -20,6 +20,9 @@ import com.example.myapplication.data.DBHelper;
 public class PerfilActivity extends AppCompatActivity {
     private static final String TAG = "Perfil";
     private DBHelper dbHelper;
+    private String nombre;
+    private String email;
+    private String telefono;
 
 
 
@@ -27,25 +30,49 @@ public class PerfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
+        dbHelper = new DBHelper(this);
+
 
         long userId = DBHelper.getUsuarioLogueado();
+        Log.d(TAG, "User; " + userId);
+
         Cursor cursor = dbHelper.getUsuarioData(userId);
+
+        Log.d(TAG, "User; " + userId);
+
+
+
         if (cursor != null && cursor.moveToFirst()){
 
-            String nombre = cursor.getString(cursor.getColumnIndex(COLUMN_NOMBRE));
-            String email = cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL));
-            String telefono = cursor.getString(cursor.getColumnIndex(COLUMN_TEL));
+            Log.d(TAG, "Cursor; " + cursor);
+
+           nombre = cursor.getString(cursor.getColumnIndex(COLUMN_NOMBRE));
+           email = cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL));
+           telefono = cursor.getString(cursor.getColumnIndex(COLUMN_TEL));
+
+            Log.d(TAG, "LLego; ");
+
+
+            actualizarVista();
 
         }
     }
 
-    TextView campoNombre = findViewById(R.id.tv_nombre);
-    TextView campoCorreo = findViewById(R.id.tv_correo);
-    TextView campoTelefono = findViewById(R.id.tv_telefono);
+    public void actualizarVista() {
 
-            campoNombre.setText(nombre);
-            campoCorreo.setText(email);
-            campoTelefono.setText(telefono);
+        TextView campoNombre = findViewById(R.id.tv_nombre);
+        TextView campoCorreo = findViewById(R.id.tv_correo);
+        TextView campoTelefono = findViewById(R.id.tv_telefono);
+
+
+        campoNombre.setText(nombre);
+        campoCorreo.setText(email);
+        campoTelefono.setText(telefono);
+
+    }
+
+
+
 
     }
 
