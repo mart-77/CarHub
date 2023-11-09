@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".activities.SplashScreenActivity"></activity>
         <activity android:name=".activities.InicioSesionActivity"></activity>
         <activity android:name=".activities.RegistroActivity"></activity>
         <activity android:name=".activities.MenuPrincipalActivity"

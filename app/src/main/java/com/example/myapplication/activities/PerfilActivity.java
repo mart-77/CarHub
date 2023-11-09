@@ -32,9 +32,9 @@ public class PerfilActivity extends AppCompatActivity {
         Cursor cursor = dbHelper.getUsuarioData(userId);
         if (cursor != null && cursor.moveToFirst()){
 
-            String nombre = cursor.getString(cursor.getColumnIndex(COLUMN_NOMBRE));
-            String email = cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL));
-            String telefono = cursor.getString(cursor.getColumnIndex(COLUMN_TEL));
+//            String nombre = cursor.getString(cursor.getColumnIndex(COLUMN_NOMBRE));
+//            String email = cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL));
+//            String telefono = cursor.getString(cursor.getColumnIndex(COLUMN_TEL));
 
         }
     }
@@ -43,9 +43,9 @@ public class PerfilActivity extends AppCompatActivity {
     TextView campoCorreo = findViewById(R.id.tv_correo);
     TextView campoTelefono = findViewById(R.id.tv_telefono);
 
-            campoNombre.setText(nombre);
-            campoCorreo.setText(email);
-            campoTelefono.setText(telefono);
+//            campoNombre.setText(nombre);
+//            campoCorreo.setText(email);
+//            campoTelefono.setText(telefono);
 
     }
 

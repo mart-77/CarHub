@@ -5,9 +5,9 @@
     android:background="@drawable/fondo_inicio">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="259dp"
+        android:layout_height="276dp"
         android:layout_centerInParent="true"
-        android:src="@drawable/carhub_logo_splash"/>
+        android:src="@drawable/carhub_logo_splash" />
 
 </RelativeLayout>
