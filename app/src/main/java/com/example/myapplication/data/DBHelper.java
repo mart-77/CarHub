@@ -13,11 +13,12 @@ public class DBHelper extends SQLiteOpenHelper {
     private final Context context;
     private static final String TABLE_NAME = "usuario";
     private static final String COLUMN_ID = "id_usuario";
-    private static final String COLUMN_EMAIL = "mail";
+    public static final String COLUMN_EMAIL = "mail";
     private static final String COLUMN_PASSWORD = "password";
-    private static final String COLUMN_NOMBRE = "nombre";
+    public static final String COLUMN_NOMBRE = "nombre";
+    public static final String COLUMN_TEL = "telefono";
     private static long usuarioLogueado;
-
+    private DBHelper dbHelper;
 
 
     public DBHelper(Context context) {
@@ -25,12 +26,9 @@ public class DBHelper extends SQLiteOpenHelper {
         this.context = context;
     }
 
-
-
-
     @Override
     public void onCreate(SQLiteDatabase db) {
-    Log.d(TAG, "Entra tabla");
+        Log.d(TAG, "Entra tabla");
 
         db.execSQL("CREATE TABLE usuario (" +
                 "                id_usuario INTEGER PRIMARY KEY ," +
@@ -108,10 +106,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public boolean comprobarCredenciales(String email, String password) {
         SQLiteDatabase database = this.getReadableDatabase();
-        String query = "SELECT * FROM " + TABLE_NAME  + " WHERE " + COLUMN_EMAIL + " = ? AND " + COLUMN_PASSWORD + " = ? ";
-        Cursor cursor = database.rawQuery(query, new String[]{email,password});
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_EMAIL + " = ? AND " + COLUMN_PASSWORD + " = ? ";
+        Cursor cursor = database.rawQuery(query, new String[]{email, password});
 
-        if (cursor.getCount()> 0 ) {
+        if (cursor.getCount() > 0) {
             cursor.close();
             return true;
 
@@ -122,22 +120,18 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void crearCuenta (String nombre, String mail, String telefono, String password) {
+    public void crearCuenta(String nombre, String mail, String telefono, String password) {
         SQLiteDatabase database = this.getReadableDatabase();
         String insertQuery = "INSERT INTO usuario (nombre, mail, telefono, password) VALUES ( ?, ?, ?, ?)";
         database.execSQL(insertQuery, new Object[]{nombre, mail, telefono, password});
     }
 
-
-
-//    Usuario
-
-
-    public long getUsuarioID (String mail) {
+    //    Usuario
+    public long getUsuarioID(String mail) {
         SQLiteDatabase database = this.getReadableDatabase();
         String[] columns = {COLUMN_ID};
         String selection = COLUMN_EMAIL + " = ?";
-        String[] selectionArgs = {mail} ;
+        String[] selectionArgs = {mail};
 
         Cursor cursor = database.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
 
@@ -158,11 +152,21 @@ public class DBHelper extends SQLiteOpenHelper {
         return usuarioLogueado;
     }
 
-    public void subirAnuncio (Long usuarioID, String titulo, String descripcion, String estado, String precio, byte[] imagenBytes) {
+    public void subirAnuncio(Long usuarioID, String titulo, String descripcion, String estado, String precio, byte[] imagenBytes) {
         SQLiteDatabase database = this.getReadableDatabase();
         String insertQuery = "INSERT INTO publicacion (id_usuario, titulo, descripcion, estado, precio, imagen) VALUES (?, ?, ? , ? , ?, ?)";
         database.execSQL(insertQuery, new Object[]{usuarioID, titulo, descripcion, estado, precio, imagenBytes});
     }
+
+    public Cursor getUsuarioData(long userId) {
+        String[] columns = {DBHelper.COLUMN_NOMBRE, DBHelper.COLUMN_EMAIL};
+        String selection = DBHelper.COLUMN_ID + " = ?";
+        String[] selectionArgs = {String.valueOf(userId)};
+
+        return dbHelper.getReadableDatabase().query(DBHelper.TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+    }
+
+
 }
 
 

@@ -1,37 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
-        android:id="@+id/headline"
-        android:layout_width="match_parent"
+        android:id="@+id/tv_mi_perfil"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/titulo_perfil"
-        android:lineSpacingExtra="4sp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="71dp"
+        android:layout_marginTop="18dp"
+        android:background="#FFFFFF"
         android:gravity="center_vertical"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
-        android:textSize="20dp"
-        />
+        android:lineSpacingExtra="4sp"
+        android:text="Mi Perfil"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
     <TextView
-        android:id="@+id/input_text"
+        android:id="@+id/tv_titulo_nombre_apellido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginRight="18dp"
+        android:lineSpacingExtra="4sp"
+        android:text="Nombre y Apellido"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_nombre"
         android:layout_width="0dp"
-        android:layout_height="28dp"
+        android:layout_height="24dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="16dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="16dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="132dp"
-        android:text="@string/texto_nombre"
-        android:textAppearance="@style/texto_nombre"
+        android:layout_marginTop="175dp"
+        android:text="Mario Felipe Rosen Rodriguez"
+        android:fontFeatureSettings="tnum, lnum"
+        android:textColor="@color/black"
+        android:lineSpacingExtra="5sp"/>
+    <TextView
+        android:id="@+id/tv_titulo_correo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="238dp"
         android:lineSpacingExtra="4sp"
-        android:translationY="-1.9sp"
-        android:gravity="top"
+        android:text="Correo Electronico"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_correo"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="279dp"
+        android:layout_marginRight="16dp"
+        android:fontFeatureSettings="tnum, lnum"
+        android:lineSpacingExtra="5sp"
+        android:text="mario.rosen@gmail.com"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_titulo_telefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="332dp"
+        android:layout_marginRight="17dp"
+        android:lineSpacingExtra="4sp"
+        android:text="Telefono"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_telefono"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="377dp"
+        android:layout_marginRight="15dp"
+        android:fontFeatureSettings="tnum, lnum"
+        android:lineSpacingExtra="5sp"
+        android:text="0981696969"
+        android:textColor="@color/black" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="650dp"
+        app:srcCompat="@drawable/toolbar_background" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="330dp"
+        android:layout_height="81dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="39dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="50dp"
+
+        app:srcCompat="@drawable/toolbar" />
+
+    <Button
+        android:id="@+id/toolbar_main_boton"
+        android:layout_width="71dp"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="37dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="620dp"
+        android:layout_marginRight="36dp"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/toolbar_chat_boton"
+        android:layout_width="43dp"
+        android:layout_height="63dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="141dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="620dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="13dp"
+        android:background="@android:color/transparent" />
+
+    <Button
+        android:id="@+id/toolbar_faq_boton"
+        android:layout_width="43dp"
+        android:layout_height="63dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="224dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="620dp"
+        android:layout_marginRight="36dp"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="9dp" />
+
+    <Button
+        android:id="@+id/toolbar_acercade_boton"
+        android:layout_width="71dp"
+        android:layout_height="58dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="302dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="620dp"
+        android:layout_marginRight="36dp"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="12dp"
         />
+    <Button
+        android:id="@+id/btn_ver_mis_publicaciones"
+        android:layout_width="327dp"
+        android:layout_height="52dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="43dp"
+        android:layout_marginTop="573dp"
+        android:backgroundTint="@color/orange"
+        android:text="Ver Mis Publcaciones"
+        android:textColor="@color/white"/>
+
+
 
 </RelativeLayout>
