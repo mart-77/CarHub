@@ -152,19 +152,35 @@ public class DBHelper extends SQLiteOpenHelper {
         return usuarioLogueado;
     }
 
-    public void subirAnuncio(Long usuarioID, String titulo, String descripcion, String estado, String precio, byte[] imagenBytes) {
+
+//subir anuncio con imagen
+//    public void subirAnuncio(Long usuarioID, String titulo, String descripcion, String estado, String precio, byte[] imagenBytes) {
+//        SQLiteDatabase database = this.getReadableDatabase();
+//        String insertQuery = "INSERT INTO publicacion (id_usuario, titulo, descripcion, estado, precio, imagen) VALUES (?, ?, ? , ? , ?, ?)";
+//        database.execSQL(insertQuery, new Object[]{usuarioID, titulo, descripcion, estado, precio, imagenBytes});
+//    }
+
+    //subir anuncio sin imagen
+    public void subirAnuncio(Long usuarioID, String titulo, String descripcion, String estado, String precio) {
         SQLiteDatabase database = this.getReadableDatabase();
-        String insertQuery = "INSERT INTO publicacion (id_usuario, titulo, descripcion, estado, precio, imagen) VALUES (?, ?, ? , ? , ?, ?)";
-        database.execSQL(insertQuery, new Object[]{usuarioID, titulo, descripcion, estado, precio, imagenBytes});
+        String insertQuery = "INSERT INTO publicacion (id_usuario, titulo, descripcion, estado, precio) VALUES (?, ?, ? , ? , ?)";
+        database.execSQL(insertQuery, new Object[]{usuarioID, titulo, descripcion, estado, precio});
     }
 
     public Cursor getUsuarioData(long userId) {
-        String[] columns = {DBHelper.COLUMN_NOMBRE, DBHelper.COLUMN_EMAIL};
+        String[] columns = {DBHelper.COLUMN_NOMBRE, DBHelper.COLUMN_EMAIL, DBHelper.COLUMN_TEL};
         String selection = DBHelper.COLUMN_ID + " = ?";
         String[] selectionArgs = {String.valueOf(userId)};
 
-        return dbHelper.getReadableDatabase().query(DBHelper.TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+        Log.d(TAG, "Llego");
+SQLiteDatabase database = getReadableDatabase();
+Log.d(TAG, "" + database);
+        return database.query(DBHelper.TABLE_NAME, columns, selection, selectionArgs, null, null, null);
     }
+
+    //Perfil
+
+
 
 
 }

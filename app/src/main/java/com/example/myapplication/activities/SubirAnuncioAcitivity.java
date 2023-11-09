@@ -50,83 +50,84 @@ public class SubirAnuncioAcitivity extends AppCompatActivity {
         campoEstado = (EditText) findViewById(R.id.estado_anuncio_input);
         campoPrecio = (EditText) findViewById(R.id.precio_anuncio_input);
         campoImagen = (Button) findViewById(R.id.btn_subir_imagen);
-        campoImagen.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                seleccionarImagenGaleria();
-            }
-        });
+//        campoImagen.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                seleccionarImagenGaleria();
+//            }
+//        });
     }
 
-    public void seleccionarImagenGaleria() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, CODIGO_DE_PERMISO);
-
-            Log.d(TAG, "No tengo permiso");
+//    public void seleccionarImagenGaleria() {
+//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, CODIGO_DE_PERMISO);
+//
+//            Log.d(TAG, "Pido permiso");
 //            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 //            startActivityForResult(intent, seleccionarImagen);
-        } else {
-            Log.d(TAG, "Pido");
-        }
-    }
+//        } else {
+//            Log.d(TAG, "Pido");
+//        }
+//    }
 
 // Solicitar permisos
 
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == CODIGO_DE_PERMISO) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permiso otorgado; puedes realizar la acción que requiere permisos.
-                Log.d(TAG, "Entra permiso otorgaoo");
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        if (requestCode == CODIGO_DE_PERMISO) {
+//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                // Permiso otorgado; puedes realizar la acción que requiere permisos.
+//                Log.d(TAG, "Entra permiso otorgaoo");
+//
+//            } else {
+//                // Permiso denegado; informa al usuario o ajusta el flujo de tu aplicación según sea necesario.
+//                Log.d(TAG, "Entra permiso denegado");
+//
+//            }
+//        }
+//    }
 
-            } else {
-                // Permiso denegado; informa al usuario o ajusta el flujo de tu aplicación según sea necesario.
-                Log.d(TAG, "Entra permiso denegado");
 
-            }
-        }
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Log.d(TAG, "entra seleccion");
-
-        if (requestCode == seleccionarImagen && resultCode == RESULT_OK) {
-            Log.d(TAG, "entra seleccion1");
-
-            if (data != null) {
-
-                Log.d(TAG, "entra seleccion2");
-                // La imagen ha sido seleccionada desde la galería
-                imagenUri = data.getData();
-
-                String[] projection = {MediaStore.Images.Media.DATA};
-                Cursor cursor = getContentResolver().query(imagenUri, projection, null, null, null);
-
-                if (cursor != null && cursor.moveToFirst()) {
-                    int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-                    String filePath = cursor.getString(columnIndex);
-
-                    // Ahora 'filePath' contiene la ruta del archivo seleccionado desde la galería
-                    cursor.close();
-
-                    // Puedes usar 'filePath' para cargar la imagen, convertirla en bytes y guardarla en la base de datos
-                    Bitmap bitmap = BitmapFactory.decodeFile((filePath)); // Reemplaza con la ruta de tu imagen
-                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-                    imagenBytes = stream.toByteArray();
-                }
-            }
-        }
-
-        Log.d(TAG, "Se guardo");
-
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        Log.d(TAG, "entra seleccion");
+//
+//        if (requestCode == seleccionarImagen && resultCode == RESULT_OK) {
+//            Log.d(TAG, "entra seleccion1");
+//
+//            if (data != null) {
+//
+//                Log.d(TAG, "entra seleccion2");
+//                // La imagen ha sido seleccionada desde la galería
+//                imagenUri = data.getData();
+//
+//                String[] projection = {MediaStore.Images.Media.DATA};
+//                Cursor cursor = getContentResolver().query(imagenUri, projection, null, null, null);
+//
+//                if (cursor != null && cursor.moveToFirst()) {
+//                    int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+//                    String filePath = cursor.getString(columnIndex);
+//
+//                    // Ahora 'filePath' contiene la ruta del archivo seleccionado desde la galería
+//                    cursor.close();
+//
+//                    // Puedes usar 'filePath' para cargar la imagen, convertirla en bytes y guardarla en la base de datos
+//                    Bitmap bitmap = BitmapFactory.decodeFile((filePath)); // Reemplaza con la ruta de tu imagen
+//                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+//                    imagenBytes = stream.toByteArray();
+//                }
+//            }
+//        }
+//
+//        Log.d(TAG, "Se guardo");
+//
+//    }
 
     public void subirAnuncio(View view) {
         Long usuarioID = DBHelper.getUsuarioLogueado();
@@ -139,10 +140,10 @@ public class SubirAnuncioAcitivity extends AppCompatActivity {
         if (titulo.equals("") || descripcion.equals("") || estado.equals("") || precio.equals("")) {
             Toast.makeText(this, "Todos los campos deben estar completos!", Toast.LENGTH_SHORT).show();
         } else {
-            ContentValues values = new ContentValues();
-            values.put("imagen", imagenBytes);
+//            ContentValues values = new ContentValues();
+//            values.put("imagen", imagenBytes);
             try {
-                dbHelper.subirAnuncio(usuarioID, titulo, descripcion, estado, precio, imagenBytes);
+                dbHelper.subirAnuncio(usuarioID, titulo, descripcion, estado, precio);
                 Log.d(TAG, "Anincio publicado");
                 Intent iniciarSesion = new Intent(this, MenuPrincipalActivity.class);
                 startActivity(iniciarSesion);
