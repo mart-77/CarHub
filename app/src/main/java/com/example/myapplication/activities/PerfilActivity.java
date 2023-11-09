@@ -24,35 +24,19 @@ public class PerfilActivity extends AppCompatActivity {
     private String email;
     private String telefono;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
         dbHelper = new DBHelper(this);
 
-
         long userId = DBHelper.getUsuarioLogueado();
-        Log.d(TAG, "User; " + userId);
-
         Cursor cursor = dbHelper.getUsuarioData(userId);
 
-        Log.d(TAG, "User; " + userId);
-
-
-
         if (cursor != null && cursor.moveToFirst()){
-
-            Log.d(TAG, "Cursor; " + cursor);
-
            nombre = cursor.getString(cursor.getColumnIndex(COLUMN_NOMBRE));
            email = cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL));
            telefono = cursor.getString(cursor.getColumnIndex(COLUMN_TEL));
-
-            Log.d(TAG, "LLego; ");
-
-
             actualizarVista();
 
         }
@@ -70,9 +54,5 @@ public class PerfilActivity extends AppCompatActivity {
         campoTelefono.setText(telefono);
 
     }
-
-
-
-
     }
 

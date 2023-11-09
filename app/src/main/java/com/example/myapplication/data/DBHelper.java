@@ -12,11 +12,15 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
     private final Context context;
     private static final String TABLE_NAME = "usuario";
+    private static final String TABLE_PUBLICACIONES = "publicacion";
     private static final String COLUMN_ID = "id_usuario";
+    private static final String COLUMN_ID_PUBLICACION = "id_publicacion";
     public static final String COLUMN_EMAIL = "mail";
     private static final String COLUMN_PASSWORD = "password";
     public static final String COLUMN_NOMBRE = "nombre";
     public static final String COLUMN_TEL = "telefono";
+    public static final String COLUMN_TITULO = "titulo";
+    public static final String COLUMN_PRECIO = "precio";
     private static long usuarioLogueado;
     private DBHelper dbHelper;
 
@@ -152,7 +156,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return usuarioLogueado;
     }
 
-
 //subir anuncio con imagen
 //    public void subirAnuncio(Long usuarioID, String titulo, String descripcion, String estado, String precio, byte[] imagenBytes) {
 //        SQLiteDatabase database = this.getReadableDatabase();
@@ -172,16 +175,16 @@ public class DBHelper extends SQLiteOpenHelper {
         String selection = DBHelper.COLUMN_ID + " = ?";
         String[] selectionArgs = {String.valueOf(userId)};
 
-        Log.d(TAG, "Llego");
 SQLiteDatabase database = getReadableDatabase();
-Log.d(TAG, "" + database);
         return database.query(DBHelper.TABLE_NAME, columns, selection, selectionArgs, null, null, null);
     }
 
-    //Perfil
-
-
-
+    public Cursor getCatalogo(){
+        SQLiteDatabase database = this.getReadableDatabase();
+        String[] columns = {DBHelper.COLUMN_TITULO, DBHelper.COLUMN_PRECIO};
+//        return database.query(TABLE_PUBLICACIONES, columns, null, null, null,null, null);
+        return database.rawQuery("SELECT " + COLUMN_ID_PUBLICACION + " AS _id, " +  COLUMN_TITULO + ", " + COLUMN_PRECIO + "  FROM " + TABLE_PUBLICACIONES, null);
+    }
 
 }
 
