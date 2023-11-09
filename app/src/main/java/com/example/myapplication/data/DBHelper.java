@@ -14,13 +14,17 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "usuario";
     private static final String TABLE_PUBLICACIONES = "publicacion";
     private static final String COLUMN_ID = "id_usuario";
-    private static final String COLUMN_ID_PUBLICACION = "id_publicacion";
+    public static final String COLUMN_ID_PUBLICACION = "id_publicacion";
     public static final String COLUMN_EMAIL = "mail";
     private static final String COLUMN_PASSWORD = "password";
     public static final String COLUMN_NOMBRE = "nombre";
     public static final String COLUMN_TEL = "telefono";
     public static final String COLUMN_TITULO = "titulo";
     public static final String COLUMN_PRECIO = "precio";
+    public static final String COLUMN_DESCRIPCION = "descripcion";
+    public static final String COLUMN_ESTADO = "estado";
+
+
     private static long usuarioLogueado;
     private DBHelper dbHelper;
 
@@ -183,8 +187,10 @@ SQLiteDatabase database = getReadableDatabase();
         SQLiteDatabase database = this.getReadableDatabase();
         String[] columns = {DBHelper.COLUMN_TITULO, DBHelper.COLUMN_PRECIO};
 //        return database.query(TABLE_PUBLICACIONES, columns, null, null, null,null, null);
-        return database.rawQuery("SELECT " + COLUMN_ID_PUBLICACION + " AS _id, " +  COLUMN_TITULO + ", " + COLUMN_PRECIO + "  FROM " + TABLE_PUBLICACIONES, null);
+        return database.rawQuery("SELECT " + COLUMN_ID_PUBLICACION + " AS _id, " +  COLUMN_TITULO + ", " + COLUMN_PRECIO + ", " + COLUMN_DESCRIPCION + ", " + COLUMN_ESTADO + " FROM " + TABLE_PUBLICACIONES, null);
     }
+
+
 
 }
 

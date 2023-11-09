@@ -94,6 +94,15 @@
             android:layout_marginLeft="20dp"
             android:textColor="@color/black"
             />
+        <TextView
+            android:id="@+id/tv_estado_publicacion_campo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="460dp"
+            android:text="Estado"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
+            />
 
     </RelativeLayout>
 
